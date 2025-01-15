@@ -13,7 +13,9 @@ const PORT = process.env.PORT || 5000;
 // const __dirname = path.dirname(__filename);
 
 // Middleware
-app.use(cors({ origin: 'http://localhost:5173' })); // Allow requests from React development server
+app.use(cors({
+    origin: 'http://localhost:5173', // Allow requests from the React app
+  })); // Allow requests from React development server
 app.use(express.json());
 
 // PostgreSQL connection pool
@@ -26,9 +28,9 @@ const pool = new pg.Pool({
 });
 
 // Root route
-app.get('/', (req, res) => {
-  res.send('Welcome to the server!');
-});
+// app.get('/', (req, res) => {
+//   res.send('Welcome to the server!');
+// });
 
 // API Routes
 app.get('/notes', async (req, res) => {
