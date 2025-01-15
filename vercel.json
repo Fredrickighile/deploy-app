@@ -1,0 +1,32 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "frontend/package.json",
+        "use": "@vercel/static-build"
+      },
+      {
+        "src": "backend/index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "/backend/index.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/frontend/$1"
+      }
+    ],
+    "env": {
+      "DB_USER": "postgres",
+      "DB_HOST": "localhost",
+      "DB_NAME": "noteDb",
+      "DB_PASSWORD": "yuwamen$18",
+      "DB_PORT": "5432",
+      "PORT": "5000"
+    }
+  }
+  
