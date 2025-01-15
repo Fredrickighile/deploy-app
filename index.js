@@ -25,6 +25,11 @@ const pool = new pg.Pool({
     port: process.env.DB_PORT,
 });
 
+// Root route
+app.get('/', (req, res) => {
+  res.send('Welcome to the server!');
+});
+
 // API Routes
 app.get('/notes', async (req, res) => {
     try {
